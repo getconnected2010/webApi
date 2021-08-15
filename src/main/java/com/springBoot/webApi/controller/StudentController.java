@@ -60,10 +60,16 @@ public class StudentController {
         }
     }
 
-    @DeleteMapping("/delete/{id}")
+    @DeleteMapping("/delid/{id}")
     public String delete(@PathVariable int id){
         studentService.delStudent(id);
-        return "student deleted";
+        return "student deleted by id";
+    }
+
+    @DeleteMapping("/delname/{name}")
+    public String delete(@PathVariable String name){
+        int deleted = studentService.delStudent(name);
+        return "Student deleted by name. Count: "+ deleted;
     }
 }
 

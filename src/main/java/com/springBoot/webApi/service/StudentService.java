@@ -39,16 +39,16 @@ public class StudentService {
     }
 
     public void delStudent(int id){
-
         studentRepository.deleteById(id);
     }
-    public void delStudent(String name){
 
+    public int delStudent(String name){
+        return studentRepository.deleteStudentByName(name);
     }
 
     public List<Student> filterNameAge(String name, int age){
+
         return studentRepository.findByNameAge(name, age);
     }
 
-    //}
 }
