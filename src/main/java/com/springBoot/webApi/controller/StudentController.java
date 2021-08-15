@@ -44,16 +44,20 @@ public class StudentController {
         return new ResponseEntity<Student>(student, HttpStatus.OK);
     }
 
-    @PutMapping("/update/{id}")
-    public String update(@PathVariable int id, @RequestBody Student student){
+    @GetMapping("/filter/{name}/{age}")
+    public List<Student> filterNameAge(@PathVariable String name, @PathVariable int age){
+        return studentService.filterNameAge(name, age);
+    }
+
+    @PutMapping("/update/{name}")
+    public String update(@PathVariable String name, @RequestBody Student student){
         try{
-            studentService.getStudent(id);
-            studentService.updateStudent(id, student);
-            return "record updated with id: "+ id;
+            studentService.getStudent(name);
+            studentService.updateStudent(name, student);
+            return "record updated with id: "+ name;
         }catch (NoSuchElementException e){
             return "no such record";
         }
-    
     }
 
     @DeleteMapping("/delete/{id}")

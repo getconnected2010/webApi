@@ -28,18 +28,27 @@ public class StudentService {
     }
 
     public Student getStudent(String name){
+
         return studentRepository.findByName(name);
     }
 
-    public void updateStudent(int id, Student student){
-        student.setId(id);
+    public void updateStudent(String name, Student student){
+        Student dbStu = studentRepository.findByName(name);
+        student.setId(dbStu.getId());
         saveStudent(student);
     }
 
     public void delStudent(int id){
+
         studentRepository.deleteById(id);
     }
     public void delStudent(String name){
 
     }
+
+    public List<Student> filterNameAge(String name, int age){
+        return studentRepository.findByNameAge(name, age);
+    }
+
+    //}
 }

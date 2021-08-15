@@ -13,8 +13,17 @@ public class Student {
     private int id;
     private String name;
     private String address;
+    private int age;
 
     public Student() {
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
     }
 
     public int getId() {
