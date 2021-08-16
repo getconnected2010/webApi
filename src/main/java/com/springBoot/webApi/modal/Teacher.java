@@ -60,4 +60,9 @@ public class Teacher {
     public void setSalary(double salary) {
         this.salary = salary;
     }
+
+    @Override
+    public String toString(){
+        return "id: "+id+" name: "+name+" school: "+school+" active: "+active+" salary: "+salary;
+    }
 }
